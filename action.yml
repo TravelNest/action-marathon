@@ -1,0 +1,21 @@
+name: "Sass Bot"
+description: "Runs a command and comments it as a comment on your PR"
+inputs:
+  command:
+    description: "The command to run"
+    required: true
+  mode:
+    description: "When to post the comment (always, failure, success)"
+    required: true
+    default: always
+  text:
+    description: "Extra text to prepend to the comment"
+    required: false
+    default: ""
+
+outputs:
+  did-fail:
+    description: "Whether or not the command failed"
+runs:
+  using: "node12"
+  main: "dist/index.js"
